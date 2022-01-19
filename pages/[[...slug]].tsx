@@ -3,6 +3,7 @@ import { createConsoleLogger, getNextPageProps, isExportProcess, NextPageProps, 
 
 // Register React components here if you migrate from MVC to React
 const componentsIndex: any = {};
+componentsIndex.ProductList = ProductList;
 
 // Root page handling all pages coming from Uniform Page Service API
 const Page = function (props: NextPageProps) {

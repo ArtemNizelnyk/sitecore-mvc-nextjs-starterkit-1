@@ -58,3 +58,18 @@ This kit can be used to complete the official tutorial and to kick off a new pro
 1. Default Cloudflare worker domain: `https://<WORKER-NAME>.<CLOUDFLARE-ACCOUNT-NAME>.workers.dev`
 
 
+## E-Commerce component with sample dynamic functionality setup
+
+Dummy data:
+[
+    { category = "xbox", id = 1, image = "https://imgur.com/3CF1UhY.png", price = 36.49, product = "Cyberpunk 2077" },
+    { category = "xbox", id = 2, image = "https://imgur.com/BqNWnDB.png", price = 21.99, product = "Grand Theft Auto 5" },
+    { category = "xbox", id = 3, image = "https://imgur.com/LXnUnd2.png", price = 49.99, product = "Minecraft" },
+]
+
+1. Go to Sitecore where you installed UfS and create a page under the Home item - `ECommerce`.
+2. Add a Javascript rendering using the Javascript Rendering Template - called `ProductList` https://docs.uniform.dev/sitecore/deploy/how-tos/how-to-migrate-mvc-to-react#option-2-changing-template-of-the-rendering
+3. Add the `ProductList` rendering to your new `ECommerce` page.
+4. Run `yarn dev`
+5. Open `localhost:3000/ecommerce` in browser 
+
