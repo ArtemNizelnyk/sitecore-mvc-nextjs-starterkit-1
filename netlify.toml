@@ -3,7 +3,3 @@ command = "npm run build"
 
 [build.environment]
 UNIFORM_BUILD_MODE = "ssr"
-
-
-[[plugins]]
-package = "@netlify/plugin-nextjs"
