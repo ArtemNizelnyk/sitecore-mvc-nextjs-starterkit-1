@@ -1,5 +1,14 @@
 import React from "react";
-import { createConsoleLogger, getNextPageProps, isExportProcess, NextPageProps, PageComponent, Placeholder, UniformContextProvider } from "@uniformdev/next";
+import {
+  createConsoleLogger,
+  getNextPageProps,
+  isExportProcess,
+  NextPageProps,
+  PageComponent,
+  Placeholder,
+  UniformContextProvider,
+} from "@uniformdev/next";
+import { GetStaticPropsContext } from "next";
 
 // Register React components here if you migrate from MVC to React
 const componentsIndex: any = {};
@@ -7,7 +16,10 @@ const componentsIndex: any = {};
 // Root page handling all pages coming from Uniform Page Service API
 const Page = function (props: NextPageProps) {
   return (
-    <UniformContextProvider logger={createConsoleLogger()} componentMap={componentsIndex}>
+    <UniformContextProvider
+      logger={createConsoleLogger()}
+      componentMap={componentsIndex}
+    >
       <PageComponent {...props}>
         {(renderingContext) => (
           <Placeholder placeholderKey="/" renderingContext={renderingContext} />
@@ -39,8 +51,10 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
-  const asPath = "/" + (params?.slug?.join("/") || "");
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const { params, ...contextProps } = context;
+  const asPath = "/" + (params?.slug || "");
+
   const props = await getNextPageProps({ asPath });
   return { props };
 }
